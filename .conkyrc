@@ -1,0 +1,99 @@
+# **********************************************************************
+# Conky Fedora 28 5/2018 
+# Michael Santiago
+# loonymike@gmail.com
+# **********************************************************************
+background yes
+double_buffer yes
+
+alignment top_right
+
+border_width 1
+cpu_avg_samples 2
+default_color white
+default_outline_color white
+default_shade_color white
+draw_borders no
+draw_graph_borders yes
+draw_outline no
+draw_shades no
+
+gap_x 15
+gap_y 50
+net_avg_samples 2
+no_buffers yes
+out_to_console no
+out_to_stderr no
+extra_newline no
+
+own_window yes
+own_window_type desktop
+own_window_transparent yes
+own_window_colour 000000
+own_window_argb_visual no
+own_window_argb_value 0
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+minimum_size 225 0
+maximum_width 250
+maximum_height 750
+stippled_borders 0
+update_interval 2.0
+uppercase no
+use_spacer none
+
+show_graph_scale no
+show_graph_range no
+
+use_xft yes
+xftalpha 0.1
+xftfont inconsolata medium:size=10
+color0 778899
+color1 EAEAEA
+color2 FFFDD0
+color3 f4ff2f
+color4 0CFF00
+color5 ff0000
+color6 cc5500
+
+TEXT
+${color0}${alignc}S Y S T E M    I N F O
+${hr}
+${color0}${alignc}${time %a %d %b %Y %R}
+${color0}${alignc}uptime ${uptime}
+${color4}${alignc}${battery_time BAT0}
+
+${color2}CPU ${color0}${alignr}${cpu cpu0}%
+${cpubar cpu0 5,}
+${top name 1} $alignr ${top cpu 1}%
+${top name 2} $alignr ${top cpu 2}%
+${top name 3} $alignr ${top cpu 3}%
+${top name 4} $alignr ${top cpu 4}%
+${top name 5} $alignr ${top cpu 5}%
+
+${color2}RAM ${color0}${alignr}${mem}
+${membar 5,}
+${top_mem name 1} $alignr ${top_mem mem_res 1}
+${top_mem name 2} $alignr ${top_mem mem_res 2}
+${top_mem name 3} $alignr ${top_mem mem_res 3}
+${top_mem name 4} $alignr ${top_mem mem_res 4}
+${top_mem name 5} $alignr ${top_mem mem_res 5}
+${color0}swap${alignr}${swap}
+
+${color2}cpu temp${alignr}${execi 1 sensors | grep "Core 0:" | cut -d+ -f2 | cut -c1-7}
+${color2}freq${alignr}${freq_g}GHz
+${color2}load${alignr}${loadavg}
+${color2}processes${alignr}${processes}
+${color2}fan speed${alignr}${ibm_fan} rpm
+${color2}root / boot${alignr}${fs_free /root} / ${fs_free /boot}
+${color2}home${alignr}${fs_free /home}
+
+${color0}${wireless_essid wlp3s0}${alignr}${wireless_link_qual_perc wlp3s0}%
+${color2}lan${color2}${alignr}${addr wlp3s0}
+${color2}wan${alignr}${execi 60 curl ipinfo.io/ip cut -c1-7}
+${color2}vpn${if_up tun0} up${else} down$endif${color6}${alignr}${addr tun0}
+
+${color2}download ${color2}${alignr}${downspeedf wlp3s0} KiB/s
+${downspeedgraph wlp3s0 60,}
+${color2}upload ${color2}${alignr}${upspeedf wlp3s0} KiB/s
+${upspeedgraph wlp3s0 60,}
