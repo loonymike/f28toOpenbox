@@ -34,9 +34,8 @@ own_window_argb_visual no
 own_window_argb_value 0
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 
-minimum_size 225 0
+minimum_size 250 0
 maximum_width 250
-maximum_height 750
 stippled_borders 0
 update_interval 2.0
 uppercase no
@@ -47,7 +46,7 @@ show_graph_range no
 
 use_xft yes
 xftalpha 0.1
-xftfont inconsolata medium:size=10
+xftfont Droid Sans:size=11 
 color0 778899
 color1 EAEAEA
 color2 FFFDD0
@@ -61,7 +60,7 @@ ${color0}${alignc}S Y S T E M    I N F O
 ${hr}
 ${color0}${alignc}${time %a %d %b %Y %R}
 ${color0}${alignc}uptime ${uptime}
-${color4}${alignc}${battery_time BAT0}
+#${color4}${alignc}${battery_time BAT0}
 
 ${color2}CPU ${color0}${alignr}${cpu cpu0}%
 ${cpubar cpu0 5,}
@@ -83,7 +82,7 @@ ${color0}swap${alignr}${swap}
 ${color2}cpu temp${alignr}${execi 1 sensors | grep "Core 0:" | cut -d+ -f2 | cut -c1-7}
 ${color2}freq${alignr}${freq_g}GHz
 ${color2}load${alignr}${loadavg}
-${color2}processes${alignr}${processes}
+#${color2}processes${alignr}${processes}
 ${color2}fan speed${alignr}${ibm_fan} rpm
 ${color2}root / boot${alignr}${fs_free /root} / ${fs_free /boot}
 ${color2}home${alignr}${fs_free /home}

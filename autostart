@@ -1,12 +1,11 @@
-#sleep 5s && kalu &
 nitrogen --restore &
 #volumeicon &
 nm-applet &
 compton --config ~/.config/compton.conf -b &
-tint2 &
-conky -c ~/.config/conky.conf &
+xfce4-panel &
+xfce4-power-manager &
 lxpolkit &
-#sh ~/.config/polybar/launch.sh &
+conky -b ~/.conkyrc &
 /usr/bin/xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1 &
 /usr/bin/xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Accel Speed" 1 &
 #blueman-applet &
