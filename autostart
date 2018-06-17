@@ -1,13 +1,16 @@
 nitrogen --restore &
-#volumeicon &
+lxpanel &
 nm-applet &
-compton --config ~/.config/compton.conf -b &
-xfce4-panel &
 xfce4-power-manager &
+compton --config ~/.config/compton.conf -b &
 lxpolkit &
-conky -b ~/.conkyrc &
+#conky -b ~/.conkyrc &
 /usr/bin/xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1 &
-/usr/bin/xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Accel Speed" 1 &
-#blueman-applet &
+/usr/bin/xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Accel Speed" .5 &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
-
+guake &
+#volumeicon &
+#xfce4-panel &
+#tint2 &
+#blueman-applet &
+#polybar openbox-bar &
